@@ -1,0 +1,49 @@
+~/workspace $ chmod 711 pset7
+
+~/workspace $ cd pset7
+
+~/workspace/pset7 $ ls
+
+config.json  includes/  public/  vendor/  views/
+
+~/workspace/pset7 $ chmod 755 public
+
+~/workspace/pset7 $ cd public
+
+~/workspace/pset7/public $ chmod 711 css fonts img js
+
+~/workspace/pset7/public $ chmod 644 css/* fonts/* img/* js/*
+
+~/workspace/pset7 $ chmod 711 includes vendor views
+
+~/workspace/pset7 $ chmod 644 public/* includes/* vendor/* views/*    
+
+~/workspace/pset7 $ chmod 644 public/*.php includes/* vendor/* views/*
+
+~/workspace/pset7/ $ chmod 644 config.json
+
+~/workspace/pset7/ $ cd vendor
+
+~/workspace/pset7/vendor/ $ ls
+
+library50-php-5/
+
+~/workspace/pset7/vendor/ $ chmod 711 library50*
+
+~/workspace/pset7/vendor/ $ cd library*
+
+~/workspace/pset7/vendor/library50-php-5/ $ ls
+
+CS50/
+
+~/workspace/pset7/vendor/library50-php-5/ $ chmod 711 CS50
+
+~/workspace/pset7/vendor/library50-php-5/ $ chmod 644 CS50/*php
+
+cd ~/workspace/pset7/
+
+find . -type d | xargs chmod 711
+
+find . -name *.php | xargs chmod 640
+
+~/workspace/ $ chmod 711 pset7
