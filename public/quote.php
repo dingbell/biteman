@@ -7,26 +7,39 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("quote_form.php", ["title" => "Get Quote"]);
+        render("quote_form.php", ["positions" => $_SESSION["positions"], "title" => "Get Quote"]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        $positions = $_SESSION["positions"];
         // validate submission
-        if (empty($_POST["quote"]))
+        if (empty($_POST["name"]))
         {
-            apologize("You must provide the quote symbol.");
+           $_POST["name"] = $positions["name"];
         }
-        $stock = lookup($_POST["quote"]);
-        if($stock === false)
+        if (empty($_POST["add1"]))
         {
-            apologize("Please provide a valid symbol.");
+           $_POST["add1"] = $positions["add1"];
         }
-        else
+        if (empty($_POST["add2"]))
         {
-            render("quote.php", $stock);
+           $_POST["add2"] = $positions["add2"];
         }
+        if (empty($_POST["dist"]))
+        {
+           $_POST["dist"] = $positions["dist"];
+        }
+        if (empty($_POST["prov"]))
+        {
+           $_POST["prov"] = $positions["province"];
+        }
+        //mysql_query("UPDATE Persons SET Age = '36'
+        //WHERE FirstName = 'Peter' AND LastName = 'Griffin'");
+        $result = CS50::query("UPDATE restInfo SET Name = ?, Add1 = ?, Add2 = ?, Region = ?, Prov = ? WHERE id = ?", $_POST["name"], $_POST["add1"], $_POST["add2"], $_POST["dist"], $_POST["prov"], $_SESSION["id"]);
+        // redirect to portfolio
+        redirect("/");
         
     }
 

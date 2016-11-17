@@ -2,8 +2,8 @@
 -- Database: `pset7`
 --
 
-CREATE DATABASE IF NOT EXISTS `ece651`;
-USE `ece651`;
+CREATE DATABASE IF NOT EXISTS `pset7`;
+USE `pset7`;
 
 -- --------------------------------------------------------
 

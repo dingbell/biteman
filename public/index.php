@@ -5,33 +5,49 @@
     
     // define $posiitons, the informtion for protfolio
    // $id =  CS50::query("SELECT id from users WHERE username = ?", $_SESSION["id"]);
-    $rows = CS50::query("SELECT * FROM restInfo WHERE id = ?", $_SESSION["id"]);
-    //$rows = CS50::query("SELECT * FROM restInfo WHERE id = 9");
-    $positions = [];
-    $restInfo = $rows[0];
-    if ($restInfo !== false)
+    if ($_SESSION["userType"] == "rest")
     {
-        $positions[] = [
-            "name" => $restInfo["Name"],
-            "add1" => $restInfo["Add1"],
-            "add2" => $restInfo["Add2"],
-            "dist" => $restInfo["Region"],
-            "province" => $restInfo["Prov"] 
-        ];
+        $rows = CS50::query("SELECT * FROM restInfo WHERE id = ?", $_SESSION["id"]);
+        //$rows = CS50::query("SELECT * FROM restInfo WHERE id = 9");
+        $positions = [];
+        $restInfo = $rows[0];
+        if ($restInfo !== false)
+        {
+            $positions[] = [
+                "name" => $restInfo["Name"],
+                "add1" => $restInfo["Add1"],
+                "add2" => $restInfo["Add2"],
+                "dist" => $restInfo["Region"],
+                "province" => $restInfo["Prov"] 
+            ];
+            
+        }
     }
-    /**
-    $cashRows = CS50::query("SELECT cash FROM users where id = ?", $_SESSION["id"]);
-    if (count($cashRows) != 0){
-        $cash = $cashRows[0]["cash"];
-        $positions[] = [
-            "symbol" => "CASH",
-            "total" => $cash,
-            "name" => "",
-            "price" => "",
-            "shares" => ""
-        ];    
+    
+    if ($_SESSION["userType"] == "cust")
+    {
+        $rows = CS50::query("SELECT * FROM custInfo WHERE id = ?", $_SESSION["id"]);
+        //$rows = CS50::query("SELECT * FROM restInfo WHERE id = 9");
+        $positions = [];
+        $restInfo = $rows[0];
+        if ($restInfo !== false)
+        {
+            $positions[] = [
+                "name" => $restInfo["Name"],
+                "phone" => $restInfo["phone"] 
+            ];
+        }
     }
-    **/
+    
+    $_SESSION["positions"] = $positions;
     // render portfolio
-    render("portfolio.php",["positions" => $positions, "title" => "Portfolio"]);
+    if ($_SESSION["userType"] == "rest")
+    {
+        render("portfolio_rest.php",["positions" => $positions, "title" => "Portfolio"]);
+    }
+    else
+    {
+        // To do
+        render("portfolio_cust.php",["positions" => $positions, "title" => "Portfolio"]);
+    }
 ?>
