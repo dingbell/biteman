@@ -9,25 +9,26 @@
         // else render form
         render("quote_form.php", ["title" => "Get Quote"]);
     }
-
+    
     // else if user reached page via POST (as by submitting a form via POST)
+   
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // validate submission
         if (empty($_POST["quote"]))
         {
-            apologize("You must provide the quote symbol.");
+            apologize("You must provide a restaurant's name.");
         }
-        $stock = lookup($_POST["quote"]);
-        if($stock === false)
+        $result = CS50::query("SELECT * FROM restInfo WHERE Name LIKE ?", $_POST["quote"]);
+        if($result === false)
         {
-            apologize("Please provide a valid symbol.");
+            apologize("Please provide a valid restaurant's name.");
         }
         else
         {
-            render("quote.php", $stock);
+            //redirect("/");
+           render("quote.php", [ "positions" => $result,"title" => "Restaurant Information"]);
+           //render("quote.php", ["title" => "Restaurant Information"]);
         }
-        
     }
-
 ?>
