@@ -17,15 +17,15 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label for="password" class="control-label">Password</label>
-            <input type="password" data-minlength="6" class="form-control" name="password" placeholder="Password" required>
-            <div class="help-block">Minimum of 6 characters</div>
-        </div>
-        <div class="form-group">
-            <label for="confirmation" class="control-label">Confirmation</label>
-            <input type="password" class="form-control" name="confirmation" data-match="#password" data-match-error="Sorry, the confirmation and password must be the same" placeholder="Confirmation" required>
-            <div class="help-block with-errors"></div>
-        </div>
+                    <label for="email" class="control-label">Password</label>
+                    <input class="form-control" data-minlength="6" id="password" name="password" required type="password"/>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmation" class="control-label">Password (again)</label>
+                    <input class="form-control" data-match="#password" data-match-error="passwords don't match" id="confirmation" name="confirmation" required type="password"/>
+                    <div class="help-block with-errors"></div>
+                </div>
         <div class="form-group">
             <div class="radio">
                 <label>
