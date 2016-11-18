@@ -7,7 +7,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("quote_form.php", ["title" => "Get Quote"]);
+        render("search_rest_form.php", ["title" => "Search Restaurant"]);
     }
     
     // else if user reached page via POST (as by submitting a form via POST)
@@ -27,7 +27,7 @@
         else
         {
             //redirect("/");
-           render("quote.php", [ "positions" => $result,"title" => "Restaurant Information"]);
+           render("search_rest.php", [ "positions" => $result,"title" => "Restaurant Information"]);
            //render("quote.php", ["title" => "Restaurant Information"]);
         }
     }

@@ -35,8 +35,8 @@
                 </div>
                 <?php if (!empty($_SESSION["id"])): ?>
                     <ul class="nav nav-pills">
-                        <li><a href="quote.php">Search Restaurant</a></li>
-                        <li><a href="buy.php">Search Food</a></li>
+                        <li><a href="search_rest.php">Search Restaurant</a></li>
+                        <li><a href="search_food.php">Search Food</a></li>
                         <li><a href="sell.php">Make Order</a></li>
                         <li><a href="history.php">View Order</a></li>
                         <li><a href="logout.php"><strong>Log Out</strong></a></li>
