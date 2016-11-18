@@ -40,7 +40,6 @@
         $result = CS50::query("UPDATE restInfo SET Name = ?, Add1 = ?, Add2 = ?, Region = ?, Prov = ? WHERE id = ?", $_POST["name"], $_POST["add1"], $_POST["add2"], $_POST["dist"], $_POST["prov"], $_SESSION["id"]);
         // redirect to portfolio
         redirect("/");
-        
     }
 
 ?>

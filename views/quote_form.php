@@ -1,8 +1,7 @@
 <form action="quote.php" method="post">
-    <fieldset>
-        <tbody>
-    <table style="width:100%">
-    
+    <tbody>
+        <fieldset>
+        <table style="width:100%;float:center">
         <div class="form-group">
            <?php foreach ($positions as $position): ?>
             <tr>
@@ -25,14 +24,15 @@
                 <td>Province</td>
                 <td><input  autofocus class="form-control" name="prov" placeholder= "<?= $position["province"] ?>" type="text"/></td>
             </tr>
-              <?php endforeach ?>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-default" type="submit">
-                Get Restaurant
-            </button>
-        </div>
+       </table>
+       </div>
+       <?php endforeach ?>
+       <div class="form-group">
+                <button class="btn btn-default" type="submit">
+                    Edit
+                </button>
+         </fieldset>
     </tbody>
-    </fieldset>
+    
 </form>
 
