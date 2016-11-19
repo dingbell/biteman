@@ -19,7 +19,7 @@
         {
             apologize("You must provide a dish.");
         }
-        $result = CS50::query("SELECT food.name,restInfo.Name as restName,price,picture FROM restInfo INNER JOIN food ON food.restid= restInfo.id WHERE food.name LIKE ?", $_POST["search"]);
+        $result = CS50::query("SELECT food.name,restInfo.Name as restName,price,picture, restInfo.id FROM restInfo INNER JOIN food ON food.restid= restInfo.id WHERE food.name LIKE ?", $_POST["search"]);
         if($result === false)
         {
             apologize("Please provide a valid dish.");
