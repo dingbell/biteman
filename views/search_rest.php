@@ -16,8 +16,8 @@
             <th>Region</th>
             <th>Province</th>
             <th>Postcode</th>
-            <th>Province</th>
-            <th>Postcode</th>
+            <th>Latitude</th>
+            <th>Longtitude</th>
         </tr>
     </thead>
     <tbody>
@@ -33,12 +33,9 @@
             <td><?= $position["Region"] ?></td>
             <td><?= $position["Prov"] ?></td>
             <td><?= $position["Postcode"] ?></td>
-            <td><?= $position["latitude"] ?></td>
-            <td><?= $position["longitude"] ?></td>
+            <td><?= $latitude = $position["latitude"] ?></td>
+            <td><?= $longitude = $position["longitude"] ?></td>
         </tr>
-        
-        <?= $latitude = $position["latitude"];?>
-        <?= $longitude = $position["longitude"];?>
         
     <?php endforeach ?>
     
