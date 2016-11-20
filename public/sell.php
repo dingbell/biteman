@@ -7,37 +7,28 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("sell_form.php", ["title" => "Sell"]);
+        render("sell_form.php", ["positions" => $_SESSION["positions"], "title" => "Edit Menu"]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        $positions = $_SESSION["positions"];
         // validate submission
-        if (empty($_POST["symbol"]))
+        if (empty($_POST["name"]))
         {
-            apologize("You must provide the sell symbol.");
+           $_POST["name"] = $positions["name"];
         }
-        $stock = lookup($_POST["symbol"]);
-        $rows = CS50::query("SELECT * from portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
-        if($stock === false)
+        if (empty($_POST["price"]))
         {
-            apologize("Please provide a valid symbol.");
+           $_POST["price"] = $positions["price"];
         }
-        else if (count($rows) != 1)
-        {
-            apologize("You don't have the stock -- The developer's fault:(.");
-            //render("quote.php", $stock);
-        }
-        else
-        {
-            $shares = $rows[0]["shares"];
-            CS50::query("DELETE FROM portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
-            CS50::query("UPDATE users SET CASH = CASH + ? WHERE id = ?", $stock["price"]*$shares, $_SESSION["id"]);
-            CS50::query("INSERT INTO transaction (user_id, transaction, time, symbol, shares, price) VALUES(?,?,now(),?,?,?)", $_SESSION["id"], "SELL", $stock["symbol"],$shares,$stock["price"]);
-        }
-        redirect("/");
+        
+        //mysql_query("UPDATE Persons SET Age = '36'
+        //WHERE FirstName = 'Peter' AND LastName = 'Griffin'");
+        $result = CS50::query("INSERT food SET name = ?, price = ?, restid = ?", $_POST["name"], $_POST["price"], $_SESSION["id"]);
+        // redirect to portfolio
+        redirect("/vmenu.php");
     }
-    
 
 ?>

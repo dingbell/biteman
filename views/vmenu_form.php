@@ -2,7 +2,7 @@
     <fieldset>
         <div>
             <?php
-                $rows= cs50::query("SELECT name,price,picture FROM food WHERE restid = ?", $_SESSION["id"]);
+                $rows= cs50::query("SELECT name,price,picture,foodid FROM food WHERE restid = ?", $_SESSION["id"]);
                 echo "<table style='width:100%'>
                     <tr>
                     <th>name</th>
@@ -11,9 +11,11 @@
                     </tr>";
                     foreach ($rows as $row):
                         echo "<tr>";
-                        echo "<td>" . $row['name'] . "</td>";
+                        echo "<td>" . $row['name'] . "</td>"; 
                         echo "<td>" . $row['price'] . "</td>";
                         echo "<td>" . "<img src= ".$row["picture"]." height='50' >". "</td>";
+                        echo "<td><bottom> <button class='btn btn-default' name='edit' value=". $row["foodid"]." type='submit'> Edit </button>
+                        <bottom> <button class='btn btn-default' name='delete' value=". $row["foodid"]." type='submit'> Delete </button></td>"; 
    /*                     echo " <td><select name='cars'>
                               <option value='1'>1</option>
                                 <option value='2'>2</option>
@@ -21,9 +23,16 @@
                                 <option value='4'>4</option>
                                 </select></td>";
     */                   echo "</tr>";
-                    endforeach;
+                    endforeach; 
+
                 echo"</table>"
+                
             ?>
+            <div class="form-group">
+                <button class="btn btn-default" name='add' value="a" type="submit">
+                    Add
+                </button>
+
         </div>
     </fieldset>
 </form>
