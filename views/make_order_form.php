@@ -1,12 +1,14 @@
-
-<html> 
-<body>
-
 <form action="make_order.php" method="post">
-<input type="text" name="name"><br>
-<input type="text" name="email"><br>
-<input type="submit" name="submit"><br>
-</form>
 
-</body>
-</html>
+ <fieldset>
+     Name
+     <input type="text" name="name"><br>
+     E-mail
+     <input type="text" name="email"><br>
+     
+       
+    </fieldset>
+</form>
+<div>
+     <a href="make_order2.php">Enter</a> 
+</div>
