@@ -10,20 +10,23 @@
         $rows = CS50::query("SELECT * FROM restInfo WHERE id = ?", $_SESSION["id"]);
         //$rows = CS50::query("SELECT * FROM restInfo WHERE id = 9");
         $positions = [];
-        $restInfo = $rows[0];
-        if ($restInfo !== false)
+        if(!empty($rows))
         {
-            $positions[] = [
-                "name" => $restInfo["Name"],
-                "add1" => $restInfo["Add1"],
-                "add2" => $restInfo["Add2"],
-                "dist" => $restInfo["Region"],
-                "province" => $restInfo["Prov"],
-                "latitude" => $restInfo["latitude"],
-                "longitude" => $restInfo["longitude"],
-                "post"=> $restInfo["Postcode"]
-            ];
-            
+            $restInfo = $rows[0];
+            if ($restInfo !== false)
+            {
+                $positions[] = [
+                    "name" => $restInfo["Name"],
+                    "add1" => $restInfo["Add1"],
+                    "add2" => $restInfo["Add2"],
+                    "dist" => $restInfo["Region"],
+                    "province" => $restInfo["Prov"],
+                    "latitude" => $restInfo["latitude"],
+                    "longitude" => $restInfo["longitude"],
+                    "post"=> $restInfo["Postcode"]
+                ];
+                
+            }
         }
     }
     
@@ -32,13 +35,16 @@
         $rows = CS50::query("SELECT * FROM custInfo WHERE id = ?", $_SESSION["id"]);
         //$rows = CS50::query("SELECT * FROM restInfo WHERE id = 9");
         $positions = [];
-        $restInfo = $rows[0];
-        if ($restInfo !== false)
+        if(!empty($rows))
         {
-            $positions[] = [
-                "name" => $restInfo["Name"],
-                "phone" => $restInfo["phone"] 
-            ];
+            $restInfo = $rows[0];
+            if ($restInfo !== false)
+            {
+                $positions[] = [
+                    "name" => $restInfo["Name"],
+                    "phone" => $restInfo["phone"] 
+                ];
+            }
         }
     }
     

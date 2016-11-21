@@ -37,7 +37,7 @@
                     <ul class="nav nav-pills">
                         <li><a href="quote.php">Edit Profile</a></li>
                         <li><a href="vmenu.php">View Menu</a></li>
-                        <li><a href="sell.php">Edit Menu</a></li>
+                        <li><a href="editmenu.php">Edit Menu</a></li>
                         <li><a href="history.php">View Order</a></li>
                         <li><a href="logout.php"><strong>Log Out</strong></a></li>
                     </ul>
