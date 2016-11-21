@@ -1,9 +1,8 @@
-<form action="quote.php" method="post">
+<form action="quote.php" method="post" style="padding-left: 300px">
     <tbody>
         <fieldset>
-        <table style="width:100%;float:center">
-        <div class="form-group">
-           <?php foreach ($positions as $position): ?>
+        <table style="width:100%">
+            <?php foreach ($positions as $position): ?>
             <tr>
                 <td>Name</td>
                 <td><input  autofocus class="form-control" name="name" placeholder='<?= $position["name"] ?>' type="text"/></td>
@@ -23,6 +22,18 @@
              <tr>
                 <td>Province</td>
                 <td><input  autofocus class="form-control" name="prov" placeholder= "<?= $position["province"] ?>" type="text"/></td>
+            </tr>
+             <tr>
+                <td>Latitude</td>
+                <td><input  autofocus class="form-control" name="x" placeholder= "<?= $position["latitude"] ?>" type="text"/></td>
+            </tr>
+             <tr>
+                <td>Longitude</td>
+                <td><input  autofocus class="form-control" name="y" placeholder= "<?= $position["longitude"] ?>" type="text"/></td>
+            </tr>
+             <tr>
+                <td>Postcode</td>
+                <td><input  autofocus class="form-control" name="post" placeholder= "<?= $position["post"] ?>" type="text"/></td>
             </tr>
        </table>
        </div>

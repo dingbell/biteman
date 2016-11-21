@@ -12,7 +12,7 @@
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
-    else if ($_SERVER["REQUEST_METHOD"] == "POST")
+ /*   else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // validate submission
         if (empty($_POST["symbol"]))
@@ -49,6 +49,6 @@
             }
         }
         
-    }
+    }*/
 
 ?>

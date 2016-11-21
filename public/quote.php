@@ -13,7 +13,7 @@
     // else if user reached page via POST (as by submitting a form via POST)
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $positions = $_SESSION["positions"];
+       $positions = $_SESSION["positions"][0];
         // validate submission
         if (empty($_POST["name"]))
         {
@@ -35,9 +35,13 @@
         {
            $_POST["prov"] = $positions["province"];
         }
+        if (empty($_POST["post"]))
+        {
+           $_POST["post"] = $positions["post"];
+        }
         //mysql_query("UPDATE Persons SET Age = '36'
         //WHERE FirstName = 'Peter' AND LastName = 'Griffin'");
-        $result = CS50::query("UPDATE restInfo SET Name = ?, Add1 = ?, Add2 = ?, Region = ?, Prov = ? WHERE id = ?", $_POST["name"], $_POST["add1"], $_POST["add2"], $_POST["dist"], $_POST["prov"], $_SESSION["id"]);
+        $result = CS50::query("UPDATE restInfo SET Name = ?, Add1 = ?, Add2 = ?, Region = ?, Prov = ?, latitude = ? , longitude = ? ,Postcode= ? WHERE id = ?", $_POST["name"], $_POST["add1"], $_POST["add2"], $_POST["dist"], $_POST["prov"], $_POST["x"], $_POST["y"], $_POST["post"], $_SESSION["id"]);
         // redirect to portfolio
         redirect("/");
     }

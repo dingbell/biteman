@@ -14,15 +14,14 @@
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // validate submission
-        if (empty($_POST["symbol"]))
+        if (!empty($_POST["edit"]))
         {
-            apologize("You must provide the sell symbol.");
+         render("edit.php", ["foodid"=>$_POST["edit"]]);
         }
-        $stock = lookup($_POST["symbol"]);
-        $rows = CS50::query("SELECT * from portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
-        if($stock === false)
+        else if(!empty($_POST["delet"]))
         {
-            apologize("Please provide a valid symbol.");
+          $result = CS50::query("DELETE from food WHERE id = ?",  $_POST["delet"]); 
+           redirect("/sell.php");
         }
         else if (count($rows) != 1)
         {
@@ -36,7 +35,7 @@
             CS50::query("UPDATE users SET CASH = CASH + ? WHERE id = ?", $stock["price"]*$shares, $_SESSION["id"]);
             CS50::query("INSERT INTO transaction (user_id, transaction, time, symbol, shares, price) VALUES(?,?,now(),?,?,?)", $_SESSION["id"], "SELL", $stock["symbol"],$shares,$stock["price"]);
         }
-        redirect("/");
+       
     }
     
 

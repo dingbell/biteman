@@ -18,7 +18,10 @@
                 "add1" => $restInfo["Add1"],
                 "add2" => $restInfo["Add2"],
                 "dist" => $restInfo["Region"],
-                "province" => $restInfo["Prov"] 
+                "province" => $restInfo["Prov"],
+                "latitude" => $restInfo["latitude"],
+                "longitude" => $restInfo["longitude"],
+                "post"=> $restInfo["Postcode"]
             ];
             
         }
