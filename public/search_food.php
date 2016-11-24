@@ -19,14 +19,15 @@
         {
             apologize("You must provide a dish.");
         }
-        $result = CS50::query("SELECT food.name,restInfo.Name as restName,price,picture FROM restInfo INNER JOIN food ON food.restid= restInfo.id WHERE food.name LIKE ?", $_POST["search"]);
-        if($result === false)
-        {
+        $result = CS50::query("SELECT food.name,restInfo.Name as restName,price,picture,restid, restInfo.id FROM restInfo INNER JOIN food ON food.restid= restInfo.id WHERE food.name LIKE ?", $_POST["search"]);
+        if(empty($result) )
+        { 
             apologize("Please provide a valid dish.");
         }
         else
         {
-            render("search_food.php", [ "positions" => $result,"title" => "Restaurant Information"]);
+            
+            render("search_food.php", [ "positions" => $result, "title" => "Restaurant Information"]);
         }
     }
 ?>
