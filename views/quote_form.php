@@ -2,6 +2,21 @@
     <tbody>
         <fieldset>
         <table style="width:100%">
+            <?php 
+            if (empty($positions))
+            {
+                $position = [];
+                $position["name"] = "";
+                $position["add1"] = "";
+                $position["add2"] = "";
+                $position["dist"] = "";
+                $position["province"] = "";
+                $position["latitude"] = "";
+                $position["longitude"] = "";
+                $position["post"] = "";
+                $positions = [$position];
+            }
+            ?>
             <?php foreach ($positions as $position): ?>
             <tr>
                 <td>Name</td>
