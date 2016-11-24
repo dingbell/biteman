@@ -31,7 +31,7 @@
 
             <div id="top">
                 <div>
-                    <a href="/"><img alt="Biteman" src="/img/pacman.png"/></a>
+                    <a href="/"><img alt="Biteman" src="/img/Biteman.png"/></a>
                 </div>
                 <?php if (!empty($_SESSION["id"])): ?>
                     <ul class="nav nav-pills">
