@@ -2,10 +2,7 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Address1</th>
-            <th>Address2</th>
-            <th>Region</th>
-            <th>Province</th>
+            <th>Telephone</th>
         </tr>
     </thead>
     <tbody>
@@ -15,10 +12,7 @@
     
         <tr>
             <td><?= $position["name"] ?></td>
-            <td><?= $position["add1"] ?></td>
-            <td><?= $position["add2"] ?></td>
-            <td><?= $position["dist"] ?></td>
-            <td><?= $position["province"] ?></td>
+            <td><?= $position["phone"] ?></td>
         </tr>
     
     <?php endforeach ?>

@@ -47,14 +47,6 @@
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["id"] = $id;
                 $_SESSION["cusType"]= $cusType;
-                if ($_POST["cus-type"] == "customer") {
-                    // insert a tuple with every none except id in the cusInfo table 
-                    
-                }
-                else {
-                    // insert a tuple with every none except id in the restInfo table 
-                    $result = CS50::query("INSERT IGNORE INTO restInfo (id) VALUES(?)", $_SESSION["id"]);
-                }
                 // redirect to portfolio
                 redirect("/");
             }

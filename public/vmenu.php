@@ -1,4 +1,5 @@
 <?php
+    // Implementation of viewing the menu control
 
     // configuration
     require("../includes/config.php"); 
@@ -7,11 +8,11 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("buy_form.php", ["title" => "Buy"]);
+        render("vmenu_form.php", ["title" => "Vmenu"]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
-    else if ($_SERVER["REQUEST_METHOD"] == "POST")
+ /*   else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // validate submission
         if (empty($_POST["symbol"]))
@@ -48,6 +49,6 @@
             }
         }
         
-    }
+    }*/
 
 ?>
